@@ -9,9 +9,15 @@ class Program
             if (it == 1){Console.WriteLine("Number system translator\nEnter:\n'1': Den -> Hex\n'2': Den -> Bin\n'3': Bin -> Hex");}
             char option = (Console.ReadLine())[0]; 
             switch (option){
-                case '1': Console.WriteLine($"{denHex(Convert.ToInt64(Console.ReadLine()))}\n"); break;
-                case '2': Console.WriteLine($"{denBin(Convert.ToInt64(Console.ReadLine()))}\n"); break;
-                case '3': Console.WriteLine($"{binHex(Console.ReadLine())}\n"); break;
+                case '1': 
+                    Console.WriteLine("\nEnter denary number below: "); string x = Console.ReadLine();
+                    Console.WriteLine($"\n-> 0x{denHex(Convert.ToInt64(x))}\n"); break;
+                case '2': 
+                    Console.WriteLine("\nEnter denary number below: ");string xy = Console.ReadLine();
+                    Console.WriteLine($"\n-> 0b{denBin(Convert.ToInt64(xy))}\n"); break;
+                case '3': 
+                    Console.WriteLine("\nEnter binary string below: "); string xyz = Console.ReadLine();
+                    Console.WriteLine($"\n-> 0x{binHex(xyz)}\n"); break;
                 default: Console.WriteLine("Invalid input! Please retry.\n"); break;
             }
             it++; Console.WriteLine($"<{it}> Again? y/n"); if ((Console.ReadLine())[0]!='y'){break;}
@@ -48,8 +54,7 @@ class Program
         for (int c = 0; c < (k+j); c+=4){
             hex[c/4]=hexMap(Convert.ToByte((spl[c]*8)+(spl[c+1]*4)+(spl[c+2]*2)+(spl[c+3])));
         }
-        string str = new string(hex); string r = "0x"+str;
-        return r;
+        return new string(hex);
     }
     public static char hexMap(byte b){
         if (b <= 9){return b.ToString()[0];} //how to directly convert int to char!
