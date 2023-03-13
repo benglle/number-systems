@@ -9,9 +9,9 @@ class Program
             if (it == 1){Console.WriteLine("Number system translator\nEnter:\n'1': Den -> Hex\n'2': Den -> Bin\n'3': Bin -> Hex");}
             char option = (Console.ReadLine())[0]; 
             switch (option){
-                case '1': Console.WriteLine($"Enter number: {denHex(Convert.ToInt64(Console.ReadLine()))}"); break;
-                case '2': Console.WriteLine($"Enter number: {denBin(Convert.ToInt64(Console.ReadLine()))}"); break;
-                case '3': Console.WriteLine($"Enter number: {binHex(Console.ReadLine())}\n"); break;
+                case '1': Console.WriteLine($"{denHex(Convert.ToInt64(Console.ReadLine()))}\n"); break;
+                case '2': Console.WriteLine($"{denBin(Convert.ToInt64(Console.ReadLine()))}\n"); break;
+                case '3': Console.WriteLine($"{binHex(Console.ReadLine())}\n"); break;
                 default: Console.WriteLine("Invalid input! Please retry.\n"); break;
             }
             it++; Console.WriteLine($"<{it}> Again? y/n"); if ((Console.ReadLine())[0]!='y'){break;}
